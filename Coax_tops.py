@@ -82,11 +82,11 @@ support_54L15 = support_block.translate([center_hole_x_54L15,center_hole_y_54L15
 result_54L15 = result.union(support_54L15)
 result_54L15 = result_54L15.faces(">Z").pushPoints([(center_hole_x_54L15, center_hole_y_54L15)]).circle(small_hole_radius).cutThruAll()
 # Add text for identification of supported DK's
-result_54L15 = result_54L15.union(cq.Workplane('front').text("54L15",6,0.4).translate([coax_top_length/5,10, coax_top_thick/2]))
+result_54L15 = result_54L15.union(cq.Workplane('front').text("54L15\n54LV10",6,0.4).translate([coax_top_length/5,10, coax_top_thick/2]))
 result_54L15 = result_54L15.translate([0,50,0]) # move to own place away from the other ones for show_objet()
 show_object(result_54L15)
-cq.exporters.export(result_54L15, "./step/54L15_coax_top.step")
-cq.exporters.export(result_54L15, "./stl/54L15_coax_top.stl")
+cq.exporters.export(result_54L15, "./step/54L15_lv10_coax_top.step")
+cq.exporters.export(result_54L15, "./stl/54L15_lv10_coax_top.stl")
 
 # Do the final 54H20 steps
 support_54H20 = support_block.translate([center_hole_x_54H20,center_hole_y_54H20,(support_hight/2 +coax_top_thick/2)])

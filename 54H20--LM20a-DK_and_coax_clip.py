@@ -6,7 +6,7 @@
 #
 
 # This is a CadQuery 3D-model of  slide-in clip-on plate's  
-# for Nordic's 54H20 DK 
+# for Nordic's 54H20 and 54LM20a DK 
 # 
 # 3 different models will be exported:
 #   - without coax-cable support
@@ -93,13 +93,13 @@ result = plane.rarray(slot_spacing, 1, nslots, 1).slot2D(slot_l, slot_w, 90)
 result = result.cutThruAll()
 
 # Add text for identification of supported DK's
-result_A = result.union(cq.Workplane('front').text("54H20-DK",6,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
+result_A = result.union(cq.Workplane('front').text("54H20-LM20a-DK",5,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
 
 show_object(result_A)
 
 # Export first design as file formats used by 3D printers
-cq.exporters.export(result_A, "./step/54H20-DK_clip.step")
-cq.exporters.export(result_A, "./stl/54H20-DK_clip.stl")
+cq.exporters.export(result_A, "./step/54H20-LM20a-DK_clip.step")
+cq.exporters.export(result_A, "./stl/54H20-LM20a-DK_clip.stl")
 
 # Re-use the first design to make a second design with Murata-coax-cable support
 # Add Sides for holder of coax-antenna-cable support
@@ -125,7 +125,7 @@ coax_supports_sides = coax_support_side.union(coax_support_side.mirror((1, 0, 0)
 result_Murata = result.union(coax_supports_sides)
 
 # Add text for identification of supported DK's
-result_Murata = result_Murata.union(cq.Workplane('front').text("54H20-Murata",6,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
+result_Murata = result_Murata.union(cq.Workplane('front').text("54H20-LM20a-Murata",4.5,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
 
 # Move the second part to a bit so the parts are shown apart of each other
 result_Murata = result_Murata.translate([0,1.5*pad_y,0])
@@ -133,8 +133,8 @@ result_Murata = result_Murata.translate([0,1.5*pad_y,0])
 show_object(result_Murata)
 
 # Export  second design as file formats used by 3D printers
-cq.exporters.export(result_Murata, "./step/54H20-DK_Murata_coax_clip.step")
-cq.exporters.export(result_Murata, "./stl/54H20-DK_Murata_coax_clip.stl")
+cq.exporters.export(result_Murata, "./step/54H20-LM20a-DK_Murata_coax_clip.step")
+cq.exporters.export(result_Murata, "./stl/54H20-LM20a-DK_Murata_coax_clip.stl")
 
 # Re-use the first design to make a third design with MS156-coax-cable support
 # Add Sides for holder of coax-antenna-cable support
@@ -160,7 +160,7 @@ coax_supports_sides = coax_support_side.union(coax_support_side.mirror((1, 0, 0)
 result_MS156 = result.union(coax_supports_sides)
 
 # Add text for identification of supported DK's
-result_MS156 = result_MS156.union(cq.Workplane('front').text("54H20-MS156",6,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
+result_MS156 = result_MS156.union(cq.Workplane('front').text("54H20-LM20a-MS156",4.5,0.4 , kind="bold").translate([pad_x/2,pad_y/2, pad_thick]))
 
 # Move the third part a bit so the parts are shown apart of each other
 result_MS156 = result_MS156.translate([0,3*pad_y,0])
@@ -168,5 +168,5 @@ result_MS156 = result_MS156.translate([0,3*pad_y,0])
 show_object(result_MS156)
 
 # Export third design as file formats used by 3D printers
-cq.exporters.export(result_MS156, "./step/54H20-DK_MS156_coax_clip.step")
-cq.exporters.export(result_MS156, "./stl/54H20-DK_MS156_coax_clip.stl")
+cq.exporters.export(result_MS156, "./step/54H20-LM20a-DK_MS156_coax_clip.step")
+cq.exporters.export(result_MS156, "./stl/54H20-LM20a-DK_MS156_coax_clip.stl")
